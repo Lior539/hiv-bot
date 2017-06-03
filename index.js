@@ -44,11 +44,18 @@ app.post('/webhook/', function (req, res) {
 })
 
 function receivedMessengerEvent(event) {
+	console.log("Received message: ", event.message)
+
 	let sender = event.sender.id
-	console.log("Message data blah blah blah: ", event.message);
+	if (event.message && event.message.text) {
+		let text = event.message.text
+		receivedTextMessageEvent
+		sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+	}
 }
 
 function sendTextMessage(sender, text) {
+	console.log("sending text...");
 	let messageData = { text:text }
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
