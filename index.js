@@ -154,7 +154,7 @@ app.post('/webhook/', function (req, res) {
 	res.sendStatus(200)
 })
 
-function forwardMessagerEventToWit(event) {
+function forwardMessengerEventToWit(event) {
 	if (event.message && event.message.text) {
 		console.log("There was no event message! Did not forward to Wit")
 		return
