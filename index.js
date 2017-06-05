@@ -172,6 +172,7 @@ function forwardMessengerEventToWit(event) {
 		// Our bot did everything it has to do.
 		// Now it's waiting for further messages to proceed.
 		console.log('Waiting for next user messages');
+		console.log('Context :', context);
 
 		// Based on the session state, you might want to reset the session.
 		// This depends heavily on the business logic of your bot.
