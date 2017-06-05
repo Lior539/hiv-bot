@@ -5,7 +5,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const token = process.env.FB_PAGE_ACCESS_TOKEN
+const fbToken = process.env.FB_PAGE_ACCESS_TOKEN
+const witToken = process.env.WIT_AI_SERVER_TOKEN
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -57,7 +58,7 @@ function sendTextMessage(senderId, text) {
 	let messageData = { text:text }
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:token},
+		qs: {access_token:fbToken},
 		method: 'POST',
 		json: {
 			recipient: {id:senderId},
