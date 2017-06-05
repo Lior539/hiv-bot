@@ -162,7 +162,7 @@ function forwardMessengerEventToWit(event) {
 	let messageText = event.message.text
 
 	let senderId = event.sender.id
-	let sessionId = findOrCreateSession(sender);
+	let sessionId = findOrCreateSession(senderId);
 
 	wit.runActions(
 		sessionId,
