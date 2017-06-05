@@ -5,8 +5,20 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-const fbToken = process.env.FB_PAGE_ACCESS_TOKEN
-const witToken = process.env.WIT_AI_SERVER_TOKEN
+const FB_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN
+const WIT_TOKEN = process.env.WIT_AI_SERVER_TOKEN
+const FB_HUB_VERIFY_TOKEN = process.env.FB_HUB_VERIFY_TOKEN
+
+let Wit = null;
+let log = null;
+try {
+  // if running from repo
+  Wit = require('../').Wit;
+  log = require('../').log;
+} catch (e) {
+  Wit = require('node-wit').Wit;
+  log = require('node-wit').log;
+}
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -23,7 +35,7 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-	if (req.query['hub.verify_token'] === 'hiv-bot-secret-password-@18') {
+	if (req.query['hub.verify_token'] === FB_HUB_VERIFY_TOKEN_) {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send('Error, wrong token')
@@ -58,7 +70,7 @@ function sendTextMessage(senderId, text) {
 	let messageData = { text:text }
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: {access_token:fbToken},
+		qs: {access_token:FB_TOKEN},
 		method: 'POST',
 		json: {
 			recipient: {id:senderId},
