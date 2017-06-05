@@ -164,10 +164,12 @@ function forwardMessengerEventToWit(event) {
 	let senderId = event.sender.id
 	let sessionId = findOrCreateSession(senderId);
 
-	wit.runActions(
-		sessionId,
-		messageText,
-		sessions[sessionId].context
+// wit.runActions(
+// 	sessionId,
+// 	messageText,
+// 	sessions[sessionId].context
+wit.message(
+	messageText
 	).then((context) => {
 		// Our bot did everything it has to do.
 		// Now it's waiting for further messages to proceed.
