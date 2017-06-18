@@ -203,14 +203,14 @@ function receivedMessengerEvent(event) {
 	}
 }
 
-function sendTextMessage(senderId, text) {
+function sendMessengerTextMessageToUserWithId(id, text) {
 	let messageData = { text:text }
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
 		qs: {access_token:FB_TOKEN},
 		method: 'POST',
 		json: {
-			recipient: {id:senderId},
+			recipient: {id:id},
 			message: messageData,
 		}
 	}, function(error, response, body) {
@@ -219,7 +219,7 @@ function sendTextMessage(senderId, text) {
 		} else if (response.body.error) {
 			console.log('Error: ', response.body.error)
 		} else {
-			console.log("Sent text message to user ", senderId);
+			console.log("Sent text message to user ", id);
 			console.log("Message", messageData);
 		}
 	})
