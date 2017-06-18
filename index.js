@@ -181,7 +181,7 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 	console.log('Context Entities :', context.entities);
 	let entities = context.entities;
 	var messageToSend = '';
-	if (entities != 1) {
+	if (entities.count != 1) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context);
 		messageToSend = 'I \'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322';
 	} else {
