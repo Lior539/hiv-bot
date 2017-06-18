@@ -164,12 +164,6 @@ function forwardMessengerEventToWit(event) {
 	let senderId = event.sender.id
 	let sessionId = findOrCreateSession(senderId);
 
-// wit.runActions(
-// 	sessionId,
-// 	messageText,
-// 	sessions[sessionId].context
-wit.message(
-	messageText
 	wit.message(
 		messageText
 	).then((context) => {
@@ -208,16 +202,6 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 }
 
 // ----------------------------------------------------------------------------
-
-function receivedMessengerEvent(event) {
-	console.log("Received message: ", event.message)
-
-	let senderId = event.sender.id
-	if (event.message && event.message.text) {
-		let text = event.message.text
-		sendTextMessage(senderId, "Text received, echo: " + text.substring(0, 200))
-	}
-}
 
 function sendMessengerTextMessageToUserWithId(id, text) {
 	let messageData = { text:text }
