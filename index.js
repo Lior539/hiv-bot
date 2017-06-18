@@ -170,12 +170,17 @@ function forwardMessengerEventToWit(event) {
 // 	sessions[sessionId].context
 wit.message(
 	messageText
+	wit.message(
+		messageText
 	).then((context) => {
-		// Our bot did everything it has to do.
-		// Now it's waiting for further messages to proceed.
-		console.log('Waiting for next user messages');
-		console.log('Context :', context);
+		handleWitSuccessResponse(context, senderId, sessionId, messageText)
+	})
+	.catch((err) => {
+		console.error('Oops! Got an error from Wit: ', err.stack || err);
+	})
+}
 
+function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessage) {
 		// Based on the session state, you might want to reset the session.
 		// This depends heavily on the business logic of your bot.
 		// Example:
