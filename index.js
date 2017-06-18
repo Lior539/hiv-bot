@@ -186,7 +186,7 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 		messageToSend = 'I \'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
 	} else {
 		let entity = entities[0]
-		console.log('entity:', entity));
+		console.log('entity:', entity)
 		console.log('entity keys', Object.keys(entity))
 		messageToSend = 'I got back an entity called '
 		// Based on the session state, you might want to reset the session.
