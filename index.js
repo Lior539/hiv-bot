@@ -209,7 +209,7 @@ function messageForWitEntityName(entityName) {
 		'\n 1. By having unprotected sex with someone who has HIV' +
 		'\n 2. By allowing blood from an infected person to get into their own bloodstream.' +
 		'For instance, if a person with HIV uses a needle to inject drugs, and then shares the need with someone else, the virus can be passed on' +
-		'\n 3. A mother with HIV can pass it on to her bahby during pregnancy, in childbirth, or by breast-feeding.'
+		'\n 3. A mother with HIV can pass it on to her bahby during pregnancy, in childbirth, or by breast-feeding.' +
 		'\n\n You *cannot* get HIV from someone sneezing or coughing near you. You also can\'t get HIV by touching, hugging or holding hands with someone who has HIV or AIDS'
 
 		case 'what_is_aids':
