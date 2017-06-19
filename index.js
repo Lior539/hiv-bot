@@ -182,7 +182,8 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 		messageToSend = 'I \'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
 	} else {
 		let entityName =  Object.keys(entities)[0]
-		messageToSend = 'I got back an entity called ' + entityName
+		console.log('Will send message for entity with name: ', entityName)
+		messageToSend = messageForWitEntityName(entityName)
 
 		// Based on the session state, you might want to reset the session.
 		// This depends heavily on the business logic of your bot.
@@ -196,6 +197,16 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 	}
 
 	sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
+}
+
+function messageForWitEntityName(entityName) {
+	switch (entityName) {
+		case 'what_causes_aids':
+			return 'HIV causes AIDS'
+		default:
+		//Should not get here
+			return ''
+	}
 }
 
 // ----------------------------------------------------------------------------
