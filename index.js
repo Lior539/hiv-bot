@@ -202,43 +202,43 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 function messageForWitEntityName(entityName) {
 	switch (entityName) {
 		case 'what_causes_aids':
-			return 'HIV causes AIDS'
+		return 'HIV causes AIDS'
 
 		case 'what_causes_hiv':
-			return 'There are only three ways that people can get HIV:' +
-			'\n 1. By having unprotected sex with someone who has HIV' +
-			'\n 2. By allowing blood from an infected person to get into their own bloodstream.' +
-			'For instance, if a person with HIV uses a needle to inject drugs, and then shares the need with someone else, the virus can be passed on' +
-			'\n 3. A mother with HIV can pass it on to her bahby during pregnancy, in childbirth, or by breast-feeding.'
-			'\n\n You *cannot* get HIV from someone sneezing or coughing near you. You also can\'t get HIV by touching, hugging or holding hands with someone who has HIV or AIDS' 
+		return 'There are only three ways that people can get HIV:' +
+		'\n 1. By having unprotected sex with someone who has HIV' +
+		'\n 2. By allowing blood from an infected person to get into their own bloodstream.' +
+		'For instance, if a person with HIV uses a needle to inject drugs, and then shares the need with someone else, the virus can be passed on' +
+		'\n 3. A mother with HIV can pass it on to her bahby during pregnancy, in childbirth, or by breast-feeding.'
+		'\n\n You *cannot* get HIV from someone sneezing or coughing near you. You also can\'t get HIV by touching, hugging or holding hands with someone who has HIV or AIDS'
 
 		case 'what_is_aids':
-			return "AIDS stands for Acquired Immune Deficiency Syndrome. " +
-			'\n"Acquired" means something that you get. Most people get AIDS from having unprotected sex or by sharing needles to inject drugs ' +
-			'\n\n"Immune Deficiency" means that the body\'s immune system becomes damaged. ' +
-			'When the immune system is weak, the body cannot fight off illnesses the way it usually does.' +
-			'\n\n"Syndrome" means that a person gets several illnesses all at once.'
+		return "AIDS stands for Acquired Immune Deficiency Syndrome. " +
+		'\n"Acquired" means something that you get. Most people get AIDS from having unprotected sex or by sharing needles to inject drugs ' +
+		'\n\n"Immune Deficiency" means that the body\'s immune system becomes damaged. ' +
+		'When the immune system is weak, the body cannot fight off illnesses the way it usually does.' +
+		'\n\n"Syndrome" means that a person gets several illnesses all at once.'
 
 		case 'what_is_an_immune_system':
-			return 'Can you remember the last time you had a cold? ' +
-			'For a while, your head ached, you coughed and you sniffed. ' +
-			'Then the cold went away. This is because your body has an *immune system*. ' +
-			'The immune system defends the body, and fights the germs and viruses that make you ill. ' +
-			'But HIV attacks the immune system, and the body can no longer fight germs and infections'
+		return 'Can you remember the last time you had a cold? ' +
+		'For a while, your head ached, you coughed and you sniffed. ' +
+		'Then the cold went away. This is because your body has an *immune system*. ' +
+		'The immune system defends the body, and fights the germs and viruses that make you ill. ' +
+		'But HIV attacks the immune system, and the body can no longer fight germs and infections'
 
 		case 'what_is_hiv':
-			return 'HIV stands for Human Immunodeficiency Virus. Let\' start with the short words: ' +
-			'\n"Human" means that only people can get it. ' +
-			'\nA "virus" is a type of germ that gets into a person\'s body. ' +
-			'\n"Immunodeficiency" means that the body\'s immune system becomes weak' +
-			'\n\n' + messageForWitEntityName('what_is_an_immune_system')
+		return 'HIV stands for Human Immunodeficiency Virus. Let\' start with the short words: ' +
+		'\n"Human" means that only people can get it. ' +
+		'\nA "virus" is a type of germ that gets into a person\'s body. ' +
+		'\n"Immunodeficiency" means that the body\'s immune system becomes weak' +
+		'\n\n' + messageForWitEntityName('what_is_an_immune_system')
 
-		case 'what_is_unprotected_sex'
+		case 'what_is_unprotected_sex':
 		// TODO
-			return ''
+		return ''
 		default:
 		//Should not get here
-			return ''
+		return ''
 	}
 }
 
