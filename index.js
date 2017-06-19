@@ -175,20 +175,15 @@ function forwardMessengerEventToWit(event) {
 }
 
 function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessage) {
-	// Our bot did everything it has to do.
-	// Now it's waiting for further messages to proceed.
-	console.log('Waiting for next user messages')
-	console.log('Context Entities :', context.entities)
 	let entities = context.entities
 	var messageToSend = ''
 	if (Object.keys(entities).length != 1) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context)
 		messageToSend = 'I \'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
 	} else {
-		let entity =  entities[Object.keys(entities)[0]]
-		console.log('entity:', entity)
-		console.log('entity keys', Object.keys(entity))
-		messageToSend = 'I got back an entity called '
+		let entityName =  Object.keys(entities)[0]
+		messageToSend = 'I got back an entity called ' + entityName
+
 		// Based on the session state, you might want to reset the session.
 		// This depends heavily on the business logic of your bot.
 		// Example:
