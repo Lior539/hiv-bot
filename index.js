@@ -175,11 +175,11 @@ function messageForWitEntityName(entityName) {
 
 		case 'does_having_sex_with_a_virgin_cure_hiv':
 		return 'No, having sex with a virgin does not cure HIV or AIDS. ' +
-		'There is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.'
+		'\n\nThere is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.'
 
 		case 'how_to_avoid_getting_hiv':
 		return 'Always remember the following rules to keep safe from HIV:' +
-		'\n1. Use a new condom every time you have sex. Unprotected sex spreads HIV!' +
+		'\n\n1. Use a new condom every time you have sex. Unprotected sex spreads HIV!' +
 		'\n2. Avoid touching blood with your bare hands.' +
 		'\n3. Never touch a used injection needle, or a knife or a razor blade that has blood on it' +
 		'\n4. Cover a fresh open cut or bleeding wound with a plaster or bandage.'
@@ -188,7 +188,7 @@ function messageForWitEntityName(entityName) {
 		return 'A person with HIV can stay healthy by:' +
 		'\n1. Taking the required medicines regularly.' +
 		'\n2. Eating fresh fruit and vegetables.' +
-		'\n3. Exercising and playing sport, but also making sure they get plenty of rest.'
+		'\n3. Exercising and playing sport, but also making sure to get plenty of rest.'
 
 		case 'how_to_tell_if_you_have_hiv':
 		return 'The only way to know for sure if a person has HIV is to have a blood test at a clinic or hospital. ' +
