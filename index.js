@@ -48,29 +48,6 @@ const fbMessage = (id, text) => {
 // ----------------------------------------------------------------------------
 // Wit.ai bot specific code
 
-// This will contain all user sessions.
-// Each session has an entry:
-// sessionId -> {fbid: facebookUserId, context: sessionState}
-
-const sessions = {}
-
-const findOrCreateSession = (fbid) => {
-	let sessionId
-	// Let's see if we already have a session for the user fbid
-	Object.keys(sessions).forEach(k => {
-		if (sessions[k].fbid === fbid) {
-			// Yep, got it!
-			sessionId = k
-		}
-	})
-	if (!sessionId) {
-		// No session found for user fbid, let's create a new one
-		sessionId = new Date().toISOString()
-		sessions[sessionId] = {fbid: fbid, context: {}}
-	}
-	return sessionId
-}
-
 // Our bot actions
 const actions = {
 	send({sessionId}, {text}) {
@@ -162,19 +139,18 @@ function forwardMessengerEventToWit(event) {
 	let messageText = event.message.text
 
 	let senderId = event.sender.id
-	let sessionId = findOrCreateSession(senderId)
 
 	wit.message(
 		messageText
 	).then((context) => {
-		handleWitSuccessResponse(context, senderId, sessionId, messageText)
+		handleWitSuccessResponse(context, senderId, messageText)
 	})
 	.catch((err) => {
 		console.error('Oops! Got an error from Wit: ', err.stack || err)
 	})
 }
 
-function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessage) {
+function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 	let entities = context.entities
 	var messageToSend = ''
 	if (Object.keys(entities).length != 1) {
@@ -184,16 +160,6 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 		let entityName =  Object.keys(entities)[0]
 		console.log('Will send message for entity with name: ', entityName)
 		messageToSend = messageForWitEntityName(entityName)
-
-		// Based on the session state, you might want to reset the session.
-		// This depends heavily on the business logic of your bot.
-		// Example:
-		// if (context['done']) {
-		//   delete sessions[sessionId]
-		// }
-
-		// Updating the user's current session state
-		sessions[sessionId].context = context
 	}
 
 	sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
