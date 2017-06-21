@@ -201,6 +201,42 @@ function handleWitSuccessResponse(context, fbSenderId, sessionId, originalMessag
 
 function messageForWitEntityName(entityName) {
 	switch (entityName) {
+
+		case 'can_you_have_hiv_without_aids':
+		return 'A person can have HIV for a long time without having AIDS. Most people don\'t look or feel sick when they first get HIV. ' +
+		'They may not get sick for a long time. The virus can stay in their blood for years. At this stage, the person does not have AIDS. ' +
+		'Usually people with HIV get sick only after five to ten years.'
+
+		case 'does_having_sex_with_a_virgin_cure_hiv':
+		return 'No, having sex with a virgin does not cure HIV or AIDS. ' +
+		'There is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.'
+
+		case 'how_to_avoid_getting_hiv':
+		return 'Always remember the following rules to keep safe from HIV:' +
+		'\n1. Use a new condom every time you have sex. Unprotected sex spreads HIV!' +
+		'\n2. Avoid touching blood with your bare hands.' +
+		'\n3. Never touch a used injection needle, or a knife or a razor blade that has blood on it' +
+		'\n4. Cover a fresh open cut or bleeding wound with a plaster or bandage.'
+
+		case 'how_to_stay_healthy_with_hiv':
+		return 'A person with HIV can stay healthy by:' +
+		'\n1. Taking the required medicines regularly.' +
+		'\n2. Eating fresh fruit and vegetables.' +
+		'\n3. Exercising and playing sport, but also making sure they get plenty of rest.'
+
+		case 'how_to_tell_if_you_have_hiv':
+		return 'The only way to know for sure if a person has HIV is to have a blood test at a clinic or hospital. ' +
+		'You cannot tell if someone has HIV by looking at them.'
+
+		case 'is_it_safe_to_get_an_injection':
+		return 'It is safe to have an injection at a clinic or a hospital. ' +
+		'Doctors and nurses use only sterile injection needles. ' +
+		'Sterile means that it is so clean that it has no germs on it.'
+
+		case 'is_there_a_cure_for_hiv_or_aids':
+		return 'There is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.' +
+		'\n\n' + messageForWitEntityName('how_to_stay_healthy_with_hiv')
+
 		case 'what_causes_aids':
 		return 'HIV causes AIDS'
 
@@ -211,6 +247,11 @@ function messageForWitEntityName(entityName) {
 		'For instance, if a person with HIV uses a needle to inject drugs, and then shares the need with someone else, the virus can be passed on' +
 		'\n 3. A mother with HIV can pass it on to her bahby during pregnancy, in childbirth, or by breast-feeding.' +
 		'\n\n You *cannot* get HIV from someone sneezing or coughing near you. You also cannot get HIV by touching, hugging or holding hands with someone who has HIV or AIDS'
+
+		case 'what_happens_when_you_have_hiv':
+		return 'HIV slowly weakens the body\'s immune system. ' +
+		'Five to ten years after getting the virus, the immune system becomes so weak that it can\'t defend the body against infections. ' +
+		'The person with HIV then gets sick, usually with more than one illness. '
 
 		case 'what_is_aids':
 		return "AIDS stands for Acquired Immune Deficiency Syndrome. " +
@@ -233,11 +274,25 @@ function messageForWitEntityName(entityName) {
 		'\n"Immunodeficiency" means that the body\'s immune system becomes weak' +
 		'\n\n' + messageForWitEntityName('what_is_an_immune_system')
 
+		case 'what_is_the_difference_between_hiv_and_aids':
+		return 'There is a difference between HIV and AIDS. People who have HIV can stay healthy for a long time. ' +
+		'They only start getting sick when their immune system is damaged and weak. We then say that they have AIDS.'
+
 		case 'what_is_unprotected_sex':
-		// TODO
-		return ''
+		return 'Unprotected sex is any sex without a condom. Sometimes the condom might break or slip off during sex. This still counts as unprotected sex.' +
+		'\n\nHaving unprotected sex puts you at risk of getting HIV. It is important to use a condom when having sex.'
+
+		case 'what_should_i_eat':
+		return 'People with HIV or AIDS should eat plenty of fresh fruit, vegetables, chicken and fish to stay healthy for as long as possible.' +
+		'\n\nFresh vegetables and fruit are full of vitamins. Vitamins make the immune system strong, which helps your body to fight against illnesses.'
+
+		case 'where_did_aids_come_from':
+		return 'Nobody knows where HIV came from. Scientists think that it is a new germ that appeared only some years ago. ' +
+		'HIV and AIDS were first identified in the early 1980s.'
+
 		default:
 		//Should not get here
+		console.log('No message defined for entityName:', entityName);
 		return ''
 	}
 }
