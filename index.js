@@ -103,6 +103,7 @@ function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 		let entityName =  Object.keys(entities)[0]
 		console.log('Will send message for entity with name: ', entityName)
 		messageToSend = messageForWitEntityName(entityName)
+		logAnalytics_UserAskedQuestionEvent(entityName)
 	}
 
 	sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
@@ -264,4 +265,29 @@ function sendMessengerTextMessageToUserWithId(id, text) {
 			console.log("Message", messageData)
 		}
 	})
+}
+
+// ----------------------------------------------------------------------------
+// Analytics
+
+function logAnalytics_UserAskedQuestionEvent(witEntityName) {
+	request.post({
+		url : "https://graph.facebook.com/823503547798776/activities",
+		form: {
+			event: 'CUSTOM_APP_EVENTS',
+			custom_events: JSON.stringify([{
+				_eventName: "user_asked_question",
+				_witEntityName: witEntityName
+			}])
+			// advertiser_tracking_enabled: 0,
+			// application_tracking_enabled: 0,
+			// extinfo: JSON.stringify(['mb1']),
+			// page_id: <page_id>,
+			// page_scoped_user_id: recipientId
+		}
+	}, function(err,httpResponse,body){
+		console.error(err);
+		console.log(httpResponse.statusCode);
+		console.log(body);
+	});
 }
