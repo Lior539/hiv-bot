@@ -124,6 +124,9 @@ function messageForWitEntityName(entityName) {
 		'They may not get sick for a long time. The virus can stay in their blood for years. At this stage, the person does not have AIDS. ' +
 		'Usually people with HIV get sick only after five to ten years.'
 
+		case 'can-you-still-have-sex':
+		return 'You can still have sex if you have HIV. However, it is important to remember to use a condom.'
+
 		case 'does_having_sex_with_a_virgin_cure_hiv':
 		return 'No, having sex with a virgin does not cure HIV or AIDS. ' +
 		'\n\nThere is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.'
@@ -160,6 +163,9 @@ function messageForWitEntityName(entityName) {
 		case 'is_there_a_cure_for_hiv_or_aids':
 		return 'There is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.' +
 		'\n\n' + messageForWitEntityName('how_to_stay_healthy_with_hiv')
+
+		case 'thank-you':
+		return textMessageReplyForThankYou()
 
 		case 'what_causes_aids':
 		return 'HIV causes AIDS'
@@ -221,6 +227,18 @@ function messageForWitEntityName(entityName) {
 		//Should not get here
 		console.log('No message defined for entityName:', entityName);
 		return ''
+	}
+}
+
+func textMessageReplyForThankYou() {
+	let randomNumber = Math.floor(Math.random() * 4)
+	switch (randomNumber) {
+		case 0:
+		return 'You\'re welcome!'
+		case 1:
+		return 'I\'m happy to help 😊'
+		case 2:
+		return 'It\'s a pleasure 🤗'
 	}
 }
 
