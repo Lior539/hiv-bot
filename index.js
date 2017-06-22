@@ -124,14 +124,14 @@ function messageForWitEntityName(entityName) {
 		'They may not get sick for a long time. The virus can stay in their blood for years. At this stage, the person does not have AIDS. ' +
 		'Usually people with HIV get sick only after five to ten years.'
 
-		case 'can-you-still-have-sex':
+		case 'can_you_still_have_sex':
 		return 'You can still have sex if you have HIV. However, it is important to remember to use a condom.'
 
 		case 'does_having_sex_with_a_virgin_cure_hiv':
 		return 'No, having sex with a virgin does not cure HIV or AIDS. ' +
 		'\n\nThere is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.'
 
-		case 'how-long-does-it-take-for-hiv-to-cause-aids':
+		case 'how_long_does_it_take_for_hiv_to_cause_aids':
 		return 'How long it takes for AIDS symptoms to appear is different for each person. ' +
 		'It depends on things like your health in general and how well you are taking care of yourself.' +
 		'\n\n Usually people with HIV get sick only after five to ten years.' +
@@ -164,7 +164,7 @@ function messageForWitEntityName(entityName) {
 		return 'There is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.' +
 		'\n\n' + messageForWitEntityName('how_to_stay_healthy_with_hiv')
 
-		case 'thank-you':
+		case 'thank_you':
 		return textMessageReplyForThankYou()
 
 		case 'what_causes_aids':
