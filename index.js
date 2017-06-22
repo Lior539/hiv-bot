@@ -230,7 +230,7 @@ function messageForWitEntityName(entityName) {
 	}
 }
 
-func textMessageReplyForThankYou() {
+function textMessageReplyForThankYou() {
 	let randomNumber = Math.floor(Math.random() * 4)
 	switch (randomNumber) {
 		case 0:
