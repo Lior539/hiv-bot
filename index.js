@@ -111,13 +111,13 @@ function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 function messageForWitEntityName(entityName) {
 	switch (entityName) {
 
-case 'can_you_get_hiv_from_oral_sex':
-return 'It\'s possible to get HIV from oral sex -- whether you are giving or getting oral sex'
+		case 'can_you_get_hiv_from_oral_sex':
+		return 'It\'s possible to get HIV from oral sex -- whether you are giving or getting oral sex'
 
-case 'can_you_get_hiv_from_anal_sex':
-return 'Yes. Anal sex without a condom is very risky behavior. Either sex partner can become infected with HIV. ' +
-'\n\nWhen you have anal sex, use a latex condom. ' +
-'They\'re more likely to break during anal than vaginal sex, so also use a lot of water-based lubricant to lower the chance of that happening.'
+		case 'can_you_get_hiv_from_anal_sex':
+		return 'Yes. Anal sex without a condom is very risky behavior. Either sex partner can become infected with HIV. ' +
+		'\n\nWhen you have anal sex, use a latex condom. ' +
+		'They\'re more likely to break during anal than vaginal sex, so also use a lot of water-based lubricant to lower the chance of that happening.'
 
 		case 'can_you_have_hiv_without_aids':
 		return 'A person can have HIV for a long time without having AIDS. Most people don\'t look or feel sick when they first get HIV. ' +
