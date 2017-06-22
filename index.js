@@ -303,7 +303,7 @@ function logAnalytics_WitHadNoEntityForQuestion(questionText) {
 			application_tracking_enabled: 0,
 		}
 	}, function(err,httpResponse,body){
-		console.error('Error sending 'err);
+		console.error(err);
 		console.log(httpResponse.statusCode);
 		console.log(body);
 	});
