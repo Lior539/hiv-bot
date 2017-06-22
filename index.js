@@ -279,8 +279,8 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 				_eventName: "user_asked_question",
 				_witEntityName: witEntityName
 			}])
-			// advertiser_tracking_enabled: 0,
-			// application_tracking_enabled: 0,
+			advertiser_tracking_enabled: 0,
+			application_tracking_enabled: 0,
 			// extinfo: JSON.stringify(['mb1']),
 			// page_id: <page_id>,
 			// page_scoped_user_id: recipientId
