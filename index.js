@@ -99,6 +99,7 @@ function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 	if (Object.keys(entities).length != 1) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context)
 		messageToSend = 'I \'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
+		logAnalytics_WitHadNoEntityForQuestion(originalMessage)
 	} else {
 		let entityName =  Object.keys(entities)[0]
 		console.log('Will send message for entity with name: ', entityName)
@@ -280,13 +281,29 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 				_witEntityName: witEntityName
 			}]),
 			advertiser_tracking_enabled: 0,
-			application_tracking_enabled: 0,
-			// extinfo: JSON.stringify(['mb1']),
-			// page_id: <page_id>,
-			// page_scoped_user_id: recipientId
+			application_tracking_enabled: 0
 		}
 	}, function(err,httpResponse,body){
-		console.error(err);
+		console.error('Error sending 'err);
+		console.log(httpResponse.statusCode);
+		console.log(body);
+	});
+}
+
+function logAnalytics_WitHadNoEntityForQuestion(questionText) {
+	request.post({
+		url : "https://graph.facebook.com/823503547798776/activities",
+		form: {
+			event: 'CUSTOM_APP_EVENTS',
+			custom_events: JSON.stringify([{
+				_eventName: "wit_had_no_entity_for_question",
+				_questionText: questionText
+			}]),
+			advertiser_tracking_enabled: 0,
+			application_tracking_enabled: 0
+		}
+	}, function(err,httpResponse,body){
+		console.error('Error sending 'err);
 		console.log(httpResponse.statusCode);
 		console.log(body);
 	});
