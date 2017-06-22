@@ -168,6 +168,14 @@ function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 function messageForWitEntityName(entityName) {
 	switch (entityName) {
 
+case 'can_you_get_hiv_from_oral_sex':
+return 'It\'s possible to get HIV from oral sex -- whether you are giving or getting oral sex'
+
+case 'can_you_get_hiv_from_anal_sex':
+return 'Yes. Anal sex without a condom is very risky behavior. Either sex partner can become infected with HIV. ' +
+'\n\nWhen you have anal sex, use a latex condom. ' +
+'They\'re more likely to break during anal than vaginal sex, so also use a lot of water-based lubricant to lower the chance of that happening.'
+
 		case 'can_you_have_hiv_without_aids':
 		return 'A person can have HIV for a long time without having AIDS. Most people don\'t look or feel sick when they first get HIV. ' +
 		'They may not get sick for a long time. The virus can stay in their blood for years. At this stage, the person does not have AIDS. ' +
@@ -176,6 +184,12 @@ function messageForWitEntityName(entityName) {
 		case 'does_having_sex_with_a_virgin_cure_hiv':
 		return 'No, having sex with a virgin does not cure HIV or AIDS. ' +
 		'\n\nThere is no cure for HIV or AIDS yet, but it is still possible to live a long and healthy life.'
+
+		case 'how-long-does-it-take-for-hiv-to-cause-aids':
+		return 'How long it takes for AIDS symptoms to appear is different for each person. ' +
+		'It depends on things like your health in general and how well you are taking care of yourself.' +
+		'\n\n Usually people with HIV get sick only after five to ten years.' +
+		'\n\n Remember, it is still possible to live a long and healthy life if you have HIV'
 
 		case 'how_to_avoid_getting_hiv':
 		return 'Always remember the following rules to keep safe from HIV:' +
@@ -192,7 +206,8 @@ function messageForWitEntityName(entityName) {
 
 		case 'how_to_tell_if_you_have_hiv':
 		return 'The only way to know for sure if a person has HIV is to have a blood test at a clinic or hospital. ' +
-		'You cannot tell if someone has HIV by looking at them.'
+		'\n\nYou cannot tell if someone has HIV by looking at them. ' +
+		'Many people who have HIV don\'t have any symptoms at all for many years.'
 
 		case 'is_it_safe_to_get_an_injection':
 		return 'It is safe to have an injection at a clinic or a hospital. ' +
@@ -212,7 +227,7 @@ function messageForWitEntityName(entityName) {
 		'\n 2. By allowing blood from an infected person to get into their own bloodstream. ' +
 		'For instance, if a person with HIV uses a needle to inject drugs, and then shares the need with someone else, the virus can be passed on' +
 		'\n 3. A mother with HIV can pass it on to her bahby during pregnancy, in childbirth, or by breast-feeding.' +
-		'\n\n You *cannot* get HIV from someone sneezing or coughing near you. You also cannot get HIV by touching, hugging or holding hands with someone who has HIV or AIDS'
+		'\n\n You *cannot* get HIV from someone sneezing or coughing near you. You also cannot get HIV by touching, hugging or kissing someone who has HIV or AIDS'
 
 		case 'what_happens_when_you_have_hiv':
 		return 'HIV slowly weakens the body\'s immune system. ' +
@@ -255,6 +270,9 @@ function messageForWitEntityName(entityName) {
 		case 'where_did_aids_come_from':
 		return 'Nobody knows where HIV came from. Scientists think that it is a new germ that appeared only some years ago. ' +
 		'HIV and AIDS were first identified in the early 1980s.'
+
+		case 'where_to_get_tested':
+		return 'You can get tested for HIV at your local clinic or hospital.'
 
 		default:
 		//Should not get here
