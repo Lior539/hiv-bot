@@ -278,7 +278,7 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 			event: 'CUSTOM_APP_EVENTS',
 			custom_events: JSON.stringify([{
 				_eventName: "user_asked_question",
-				_witEntityName: witEntityName
+				"witEntityName": witEntityName
 			}]),
 			advertiser_tracking_enabled: 0,
 			application_tracking_enabled: 0,
@@ -295,7 +295,7 @@ function logAnalytics_WitHadNoEntityForQuestion(questionText) {
 			event: 'CUSTOM_APP_EVENTS',
 			custom_events: JSON.stringify([{
 				_eventName: "wit_had_no_entity_for_question",
-				_questionText: questionText
+				"questionText": questionText
 			}]),
 			advertiser_tracking_enabled: 0,
 			application_tracking_enabled: 0,
