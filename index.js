@@ -278,7 +278,7 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 			custom_events: JSON.stringify([{
 				_eventName: "user_asked_question",
 				_witEntityName: witEntityName
-			}])
+			}]),
 			advertiser_tracking_enabled: 0,
 			application_tracking_enabled: 0,
 			// extinfo: JSON.stringify(['mb1']),
