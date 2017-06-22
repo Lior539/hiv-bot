@@ -281,7 +281,7 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 				_witEntityName: witEntityName
 			}]),
 			advertiser_tracking_enabled: 0,
-			application_tracking_enabled: 0
+			application_tracking_enabled: 0,
 		}
 	}, function(err,httpResponse,body){
 		console.error('Error sending 'err);
@@ -300,7 +300,7 @@ function logAnalytics_WitHadNoEntityForQuestion(questionText) {
 				_questionText: questionText
 			}]),
 			advertiser_tracking_enabled: 0,
-			application_tracking_enabled: 0
+			application_tracking_enabled: 0,
 		}
 	}, function(err,httpResponse,body){
 		console.error('Error sending 'err);
