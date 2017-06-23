@@ -286,7 +286,7 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 	}, function(err,httpResponse,body){
 		console.log(httpResponse)
 		console.log(body)
-			if (err !==) {
+			if (err !== null) {
 				console.log('Error sending analytics event "user_asked_question". \n Error:', err)
 			}
 	});
@@ -307,7 +307,7 @@ function logAnalytics_WitHadNoEntityForQuestion(questionText) {
 	}, function(err,httpResponse,body){
 		console.log(httpResponse)
 		console.log(body)
-			if (err !==) {
+			if (err !== null) {
 				console.log('Error sending analytics event "wit_had_no_entity_for_question". \n Error:', err)
 			}
 	});
