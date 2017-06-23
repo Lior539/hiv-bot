@@ -99,12 +99,12 @@ function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 	if (Object.keys(entities).length != 1) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context)
 		messageToSend = 'I\'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
-		logAnalytics_WitHadNoEntityForQuestion(originalMessage)
+		logAnalytics_WitHadNoEntityForQuestion(originalMessage, fbSenderId)
 	} else {
 		let entityName =  Object.keys(entities)[0]
 		console.log('Will send message for entity with name: ', entityName)
 		messageToSend = messageForWitEntityName(entityName)
-		logAnalytics_UserAskedQuestionEvent(entityName)
+		logAnalytics_UserAskedQuestionEvent(entityName, fbSenderId)
 	}
 
 	sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
@@ -271,7 +271,7 @@ function sendMessengerTextMessageToUserWithId(id, text) {
 // ----------------------------------------------------------------------------
 // Analytics
 
-function logAnalytics_UserAskedQuestionEvent(witEntityName) {
+function logAnalytics_UserAskedQuestionEvent(witEntityName, userId) {
 	request.post({
 		url : "https://graph.facebook.com/823503547798776/activities",
 		form: {
@@ -282,6 +282,9 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 			}]),
 			advertiser_tracking_enabled: 0,
 			application_tracking_enabled: 0,
+			extinfo: JSON.stringify(['mb1']),
+			page_id: 1184018911707858,
+			page_scoped_user_id: userId
 		}
 	}, function(err,httpResponse,body){
 		if (err !== null) {
@@ -290,7 +293,7 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 	});
 }
 
-function logAnalytics_WitHadNoEntityForQuestion(questionText) {
+function logAnalytics_WitHadNoEntityForQuestion(questionText, userId) {
 	request.post({
 		url : "https://graph.facebook.com/823503547798776/activities",
 		form: {
@@ -301,6 +304,9 @@ function logAnalytics_WitHadNoEntityForQuestion(questionText) {
 			}]),
 			advertiser_tracking_enabled: 0,
 			application_tracking_enabled: 0,
+			extinfo: JSON.stringify(['mb1']),
+			page_id: 1184018911707858,
+			page_scoped_user_id: userId
 		}
 	}, function(err,httpResponse,body){
 		if (err !== null) {
