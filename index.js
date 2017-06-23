@@ -284,7 +284,11 @@ function logAnalytics_UserAskedQuestionEvent(witEntityName) {
 			application_tracking_enabled: 0,
 		}
 	}, function(err,httpResponse,body){
-
+		console.log(httpResponse)
+		console.log(body)
+			if (err !==) {
+				console.log('Error sending analytics event "user_asked_question". \n Error:', err)
+			}
 	});
 }
 
@@ -301,6 +305,10 @@ function logAnalytics_WitHadNoEntityForQuestion(questionText) {
 			application_tracking_enabled: 0,
 		}
 	}, function(err,httpResponse,body){
-
+		console.log(httpResponse)
+		console.log(body)
+			if (err !==) {
+				console.log('Error sending analytics event "wit_had_no_entity_for_question". \n Error:', err)
+			}
 	});
 }
