@@ -225,6 +225,10 @@ function messageForWitEntityName(entityName) {
 		case 'where_to_get_tested':
 		return 'You can get tested for HIV at your local clinic or hospital.'
 
+		case 'wit/greetings':
+		return 'Hello! I\'m Health Buddy. I\'m a robot that can answer your questions on HIV and AIDS' +
+		'\n\nFor example, you can ask me "What is HIV?" or "How does HIV spread?"'
+
 		default:
 		//Should not get here
 		console.log('No message defined for entityName:', entityName);
