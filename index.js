@@ -200,7 +200,8 @@ function messageForWitEntityName(entityName) {
 		'But HIV attacks the immune system, and the body can no longer fight germs and infections'
 
 		case 'what_is_hiv':
-		return 'HIV stands for Human Immunodeficiency Virus. Let\' start with the short words: ' +
+		return 'HIV stands for Human Immunodeficiency Virus. ' +
+		'\n\nLet\' start with the short words: ' +
 		'\n"Human" means that only people can get it. ' +
 		'\nA "virus" is a type of germ that gets into a person\'s body. ' +
 		'\n"Immunodeficiency" means that the body\'s immune system becomes weak' +
