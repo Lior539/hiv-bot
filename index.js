@@ -180,7 +180,7 @@ function messageForWitEntityName(entityName) {
 		case 'what_causes_aids':
 		case 'what_happens_when_you_have_hiv':
 		return 'HIV causes AIDS:' +
-		'HIV slowly weakens the body\'s immune system. ' +
+		'\n\nHIV slowly weakens the body\'s immune system. ' +
 		'Five to ten years after getting the virus, the immune system becomes so weak that it can\'t defend the body against infections. ' +
 		'The person with HIV then gets sick, usually with more than one illness. We then say that the person has AIDS'
 
