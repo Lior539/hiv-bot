@@ -113,29 +113,29 @@ function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 
 function helplineContactMessageForCountryCode(countryCode) {
 
-	let returnedString =  'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - '
+	var contactNumber = ''
 	switch (countryCode) {
 		case 'NG':
-		returnedString += '234-01-772-2200'
+		contactNumber = '234-01-772-2200'
 		break
 
 		case 'UG':
-		returnedString += '0800-100-330'
+		contactNumber = '0800-100-330'
 		break
 
 		case 'US'
-		returnedString += '1-800-232-4636'
+		contactNumber = '1-800-232-4636'
 		break
 
 		case 'ZA':
-		returnedString += '0800-012-322'
+		contactNumber = '0800-012-322'
 		break
 
 		default:
 		//Return empty string if no country code is found
 		return ''
 	}
-	return returnedString
+	return 'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - ' + contactNumber
 }
 
 function messageForWitEntityName(entityName) {
