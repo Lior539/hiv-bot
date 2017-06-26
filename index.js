@@ -113,7 +113,7 @@ function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 
 function helplineContactMessageForCountryCode(countryCode) {
 
-	var returnedString =  'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - '
+	let returnedString =  'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - '
 	switch (countryCode) {
 		case 'NG':
 		returnedString += '234-01-772-2200'
