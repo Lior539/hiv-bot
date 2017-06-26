@@ -79,25 +79,26 @@ function forwardMessengerEventToWit(event) {
 		console.log("There was no event message! Did not forward to Wit")
 		return
 	}
+
 	let messageText = event.message.text
-
-	let senderId = event.sender.id
-
 	wit.message(
 		messageText
 	).then((context) => {
-		handleWitSuccessResponse(context, senderId, messageText)
+		handleWitSuccessResponse(context, event, messageText)
 	})
 	.catch((err) => {
 		console.error('Oops! Got an error from Wit: ', err.stack || err)
 	})
 }
 
-function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
+function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 	let entities = context.entities
+	let fbSenderId = messengerEvent.sender.id
 	if (Object.keys(entities).length != 1) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context)
-		var messageToSend = 'I\'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
+		console.log('user locale:', messengerEvent.sender.locale);
+		let countryCode = messengerEvent.sender.locale.slice(-2)
+		let messageToSend = 'I don\'t understand what you mean by "' + originalMessage + '"\n\n' + helplineContactMessageForCountryCode(countryCode)
 		sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
 		logAnalytics_WitHadNoEntityForQuestion(originalMessage, fbSenderId)
 		return
@@ -105,9 +106,31 @@ function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 
 	let entityName =  Object.keys(entities)[0]
 	console.log('Will send message for entity with name: ', entityName)
-	var messageToSend = messageForWitEntityName(entityName)
+	let messageToSend = messageForWitEntityName(entityName)
 	sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
 	logAnalytics_UserAskedQuestionEvent(entityName, fbSenderId)
+}
+
+function helplineContactMessageForCountryCode(countryCode) {
+
+	var returnedString =  'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - '
+	switch (countryCode) {
+		case 'NG':
+		returnedString += '234-01-772-2200'
+		case 'UG':
+		returnedString += '0800-100-330'
+		break
+		case 'US'
+		returnedString += '1-800-232-4636'
+		break
+		case 'ZA':
+		returnedString += '0800-012-322'
+		break
+		default:
+		//Return empty string if no country code is found
+		return ''
+	}
+	return returnedString
 }
 
 function messageForWitEntityName(entityName) {
