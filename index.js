@@ -95,19 +95,19 @@ function forwardMessengerEventToWit(event) {
 
 function handleWitSuccessResponse(context, fbSenderId, originalMessage) {
 	let entities = context.entities
-	var messageToSend = ''
 	if (Object.keys(entities).length != 1) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context)
-		messageToSend = 'I\'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
+		var messageToSend = 'I\'m not sure I understand what you\'re asking. You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
+		sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
 		logAnalytics_WitHadNoEntityForQuestion(originalMessage, fbSenderId)
-	} else {
-		let entityName =  Object.keys(entities)[0]
-		console.log('Will send message for entity with name: ', entityName)
-		messageToSend = messageForWitEntityName(entityName)
-		logAnalytics_UserAskedQuestionEvent(entityName, fbSenderId)
+		return
 	}
 
+	let entityName =  Object.keys(entities)[0]
+	console.log('Will send message for entity with name: ', entityName)
+	var messageToSend = messageForWitEntityName(entityName)
 	sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
+	logAnalytics_UserAskedQuestionEvent(entityName, fbSenderId)
 }
 
 function messageForWitEntityName(entityName) {
