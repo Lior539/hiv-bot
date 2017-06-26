@@ -79,7 +79,7 @@ function forwardMessengerEventToWit(event) {
 		console.log("There was no event message! Did not forward to Wit")
 		return
 	}
-
+	console.log('Received event:', event)
 	let messageText = event.message.text
 	wit.message(
 		messageText
