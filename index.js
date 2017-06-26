@@ -113,7 +113,7 @@ function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 
 function helplineContactMessageForCountryCode(countryCode) {
 
-	var contactNumber = ''
+	var contactNumber
 	switch (countryCode) {
 		case 'NG':
 		contactNumber = '234-01-772-2200'
