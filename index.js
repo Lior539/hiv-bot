@@ -189,7 +189,7 @@ function messageForWitEntityName(entityName) {
 		'\n"Acquired" means something that you get. Most people get AIDS from having unprotected sex or by sharing needles to inject drugs ' +
 		'\n\n"Immune Deficiency" means that the body\'s immune system becomes damaged. ' +
 		'When the immune system is weak, the body cannot fight off illnesses the way it usually does.' +
-		'\n\n"Syndrome" means that a person gets several illnesses all at once.' +
+		'\n\n"Syndrome" means that a person gets several illnesses all at once.'
 
 		case 'what_is_an_immune_system':
 		return 'Can you remember the last time you had a cold? ' +
