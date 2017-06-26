@@ -116,15 +116,15 @@ function helplineContactMessageForCountryCode(countryCode) {
 	var returnedString =  'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - '
 	switch (countryCode) {
 		case 'NG':
-		returnedString += '234-01-772-2200'
+		returnedString.concat('234-01-772-2200')
 		case 'UG':
-		returnedString += '0800-100-330'
+		returnedString.concat('0800-100-330')
 		break
 		case 'US'
-		returnedString += '1-800-232-4636'
+		returnedString.concat('1-800-232-4636')
 		break
 		case 'ZA':
-		returnedString += '0800-012-322'
+		returnedString.concat('0800-012-322')
 		break
 		default:
 		//Return empty string if no country code is found
