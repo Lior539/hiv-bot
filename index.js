@@ -177,10 +177,10 @@ function messageForWitEntityName(entityName) {
 		'\n 3. A mother with HIV can pass it on to her bahby during pregnancy, in childbirth, or by breast-feeding.' +
 		'\n\n You *cannot* get HIV from someone sneezing or coughing near you. You also cannot get HIV by touching, hugging or kissing someone who has HIV or AIDS'
 
-    	case 'what_causes_aids':
+		case 'what_causes_aids':
 		case 'what_happens_when_you_have_hiv':
 		return 'HIV causes AIDS:' +
-        'HIV slowly weakens the body\'s immune system. ' +
+		'HIV slowly weakens the body\'s immune system. ' +
 		'Five to ten years after getting the virus, the immune system becomes so weak that it can\'t defend the body against infections. ' +
 		'The person with HIV then gets sick, usually with more than one illness. We then say that the person has AIDS'
 
@@ -190,8 +190,6 @@ function messageForWitEntityName(entityName) {
 		'\n\n"Immune Deficiency" means that the body\'s immune system becomes damaged. ' +
 		'When the immune system is weak, the body cannot fight off illnesses the way it usually does.' +
 		'\n\n"Syndrome" means that a person gets several illnesses all at once.' +
-        '\n\n' + messageForWitEntityName('what_causes_aids')
-
 
 		case 'what_is_an_immune_system':
 		return 'Can you remember the last time you had a cold? ' +
