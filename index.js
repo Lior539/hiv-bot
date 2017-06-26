@@ -113,7 +113,8 @@ function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 
 function helplineContactMessageForCountryCode(countryCode) {
 
-	var contactNumber
+	var contactNumber = '';
+	
 	switch (countryCode) {
 		case 'NG':
 		contactNumber = '234-01-772-2200'
@@ -135,6 +136,7 @@ function helplineContactMessageForCountryCode(countryCode) {
 		//Return empty string if no country code is found
 		return ''
 	}
+
 	return 'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - ' + contactNumber
 }
 
