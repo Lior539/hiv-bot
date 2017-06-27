@@ -98,7 +98,7 @@ function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context)
 		console.log('user locale:', messengerEvent.sender.locale);
 		let countryCode = messengerEvent.sender.locale.slice(-2)
-		let messageToSend = 'I don\'t understand what you mean by "' + originalMessage + '"\n\n' + helplineContactMessageForCountryCode(countryCode)
+		let messageToSend = 'I don\'t understand what you mean by "' + originalMessage + '"\n\n' + 'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
 		sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
 		logAnalytics_WitHadNoEntityForQuestion(originalMessage, fbSenderId)
 		return
@@ -109,33 +109,6 @@ function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 	let messageToSend = messageForWitEntityName(entityName)
 	sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
 	logAnalytics_UserAskedQuestionEvent(entityName, fbSenderId)
-}
-
-function helplineContactMessageForCountryCode(countryCode) {
-
-	var contactNumber = ''
-	switch (countryCode) {
-		case 'NG':
-		contactNumber = '234-01-772-2200'
-		break
-
-		case 'UG':
-		contactNumber = '0800-100-330'
-		break
-
-		case 'US':
-		contactNumber = '1-800-232-4636'
-		break
-
-		case 'ZA':
-		contactNumber = '0800-012-322'
-		break
-
-		default:
-		//Return empty string if no country code is found
-		return ''
-	}
-	return 'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - ' + contactNumber
 }
 
 function messageForWitEntityName(entityName) {
