@@ -96,8 +96,6 @@ function handleWitSuccessResponse(context, messengerEvent, originalMessage) {
 	let fbSenderId = messengerEvent.sender.id
 	if (Object.keys(entities).length != 1) {
 		console.log('Context entities for message \"', originalMessage, '\" does not equal 1 for context: ', context)
-		console.log('user locale:', messengerEvent.sender.locale);
-		let countryCode = messengerEvent.sender.locale.slice(-2)
 		let messageToSend = 'I don\'t understand what you mean by "' + originalMessage + '"\n\n' + 'You can try calling the Toll-Free HIV and AIDS Helpline and speak to a human - 0800-012-322'
 		sendMessengerTextMessageToUserWithId(fbSenderId, messageToSend)
 		logAnalytics_WitHadNoEntityForQuestion(originalMessage, fbSenderId)
