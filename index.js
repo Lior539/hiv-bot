@@ -193,7 +193,7 @@ function messageForWitEntityName(entityName) {
 		case 'what_is_an_immune_system':
 		return 'Can you remember the last time you had a cold? ' +
 		'For a while, your head ached, you coughed and you sniffed. ' +
-		'Then the cold went away. This is because your body has an *immune system*. ' +
+		'Then the cold went away. This is because your body has an "immune system". ' +
 		'The immune system defends the body, and fights the germs and viruses that make you ill. ' +
 		'But HIV attacks the immune system, and the body can no longer fight germs and infections'
 
