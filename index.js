@@ -114,7 +114,7 @@ function messageForWitEntityName(entityName) {
 		case 'can_anyone_get_hiv':
 		return 'Anybody can get HIV and AIDS. ' +
 		'No matter what age, race, culture or religion they belong to. ' +
-		'Men, women and even children can get HIV and AIDS.' +
+		'Men, women and even children can get HIV and AIDS.'
 
 		case 'can_you_get_hiv_from_oral_sex':
 		return 'It\'s possible to get HIV from oral sex -- whether you are giving or getting oral sex'
